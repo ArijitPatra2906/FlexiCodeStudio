@@ -13,7 +13,7 @@ import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
 
 const EditorPanel = () => {
   const clerk = useClerk();
-  const [_isShareDialogOpen, setIsShareDialogOpen] = useState(false);
+  const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
   const { language, theme, fontSize, editor, setFontSize, setEditor } =
     useCodeEditorStore();
   const mounted = useMounted();
