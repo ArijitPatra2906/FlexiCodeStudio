@@ -2,7 +2,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../../convex/_generated/api";
 import Link from "next/link";
-import { Blocks, Code2, Sparkles } from "lucide-react";
+import { Blocks, Code2 } from "lucide-react";
 import { SignedIn } from "@clerk/nextjs";
 import RunButton from "./RunButton";
 import HeaderProfileBtn from "./HeaderProfileBtn";
@@ -13,9 +13,9 @@ async function Header() {
   const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
   const user = await currentUser();
 
-  const convexUser = await convex.query(api.users.getUser, {
-    userId: user?.id || "",
-  });
+  // const convexUser = await convex.query(api.users.getUser, {
+  //   userId: user?.id || "",
+  // });
 
   return (
     <div className="relative z-10">
