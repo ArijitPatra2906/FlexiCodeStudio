@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Star } from "lucide-react";
 import useMounted from "@/hooks/useMounted";
+import toast from "react-hot-toast";
 
 function StarButton({ snippetId }: { snippetId: Id<"snippets"> }) {
   const { isSignedIn } = useAuth();
@@ -14,7 +15,14 @@ function StarButton({ snippetId }: { snippetId: Id<"snippets"> }) {
   const star = useMutation(api.snippets.starSnippet);
 
   const handleStar = async () => {
-    if (!isSignedIn) return;
+    if (!isSignedIn) {
+      toast("Please login first for add to favourite", {
+        style: {
+          color: "gold",
+        },
+      });
+      return;
+    }
     await star({ snippetId });
   };
 

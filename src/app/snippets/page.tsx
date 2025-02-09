@@ -5,9 +5,9 @@ import { api } from "../../../convex/_generated/api";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, Code, Grid, Layers, Search, Tag, X } from "lucide-react";
-import NavigationHeader from "@/components/NavigationHeader";
 import SnippetsPageSkeleton from "./_components/SnippentsPageSkeleton";
 import SnippetCard from "./_components/SnippetCard";
+import Header from "@/components/Header";
 
 function SnippetsPage() {
   const snippets = useQuery(api.snippets.getSnippets);
@@ -19,7 +19,7 @@ function SnippetsPage() {
   if (snippets === undefined) {
     return (
       <div className="min-h-screen">
-        <NavigationHeader />
+        <Header />
         <SnippetsPageSkeleton />
       </div>
     );
@@ -42,7 +42,7 @@ function SnippetsPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
-      <NavigationHeader />
+      <Header />
 
       <div className="relative max-w-7xl mx-auto px-4 py-12">
         {/* Hero */}
