@@ -38,20 +38,23 @@ function Header() {
           </div>
 
           {/* right rection */}
-          <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex items-center mt-2 gap-4">
             <SignedIn>
               <Link href="/code-editor">
                 <button
                   className="hidden md:flex relative group items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 hover:bg-blue-500/10 
               border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg overflow-hidden"
                 >
-                  <Code2 className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
+                  <Codesandbox className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
                   <span className="text-sm font-medium relative z-10 group-hover:text-white transition-colors">
                     Code Editor
                   </span>
                 </button>
-                <button className="md:hidden">
-                  <Codesandbox className="h-4 w-4" />
+                <button
+                  className="md:hidden p-2 rounded-lg bg-gray-800 hover:bg-gray-700 active:bg-gray-600 text-gray-300 transition-all duration-200 shadow-md"
+                  aria-label="Open Code Editor"
+                >
+                  <Codesandbox className="h-5 w-5 text-gray-300" />
                 </button>
               </Link>
             </SignedIn>
@@ -61,10 +64,16 @@ function Header() {
                 className="hidden relative group md:flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 hover:bg-blue-500/10 
               border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg overflow-hidden"
               >
-                <Share2 className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
+                <Code2 className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
                 <span className="text-sm font-medium relative z-10 group-hover:text-white transition-colors">
                   Snippets
                 </span>
+              </button>
+              <button
+                className="md:hidden p-2 rounded-lg bg-gray-700 hover:bg-gray-600 active:bg-gray-500 text-gray-200 transition-all duration-200 shadow-md"
+                aria-label="Open Snippets"
+              >
+                <Code2 className="h-5 w-5 text-gray-200" />
               </button>
             </Link>
             {/* <SignedOut>

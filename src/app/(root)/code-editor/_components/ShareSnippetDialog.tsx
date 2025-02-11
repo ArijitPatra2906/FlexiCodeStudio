@@ -13,15 +13,16 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
 
   const handleShare = async (e: React.FormEvent) => {
     e.preventDefault();
-
     setIsSharing(true);
-
     try {
       const code = getCode();
-      await createSnippet({ title, language, code });
+      const snippetId = await createSnippet({ title, language, code });
+      await navigator.clipboard.writeText(
+        `${window.location.origin}/snippets/${snippetId}`
+      );
       onClose();
       setTitle("");
-      toast.success("Snippet shared successfully");
+      toast.success("Link copied successfully");
     } catch (error) {
       console.log("Error creating snippet:", error);
       toast.error("Error creating snippet");

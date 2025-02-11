@@ -6,7 +6,7 @@ import { api } from "../../../../convex/_generated/api";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Clock, Trash2, User } from "lucide-react";
+import { Clock, Trash2, User, Share2 } from "lucide-react";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import StarButton from "@/components/StarButton";
@@ -27,6 +27,47 @@ function SnippetCard({ snippet }: { snippet: Snippet }) {
     } finally {
       setIsDeleting(false);
     }
+  };
+
+  const handleShare = () => {
+    const url = `${window.location.origin}/snippets/${snippet._id}`;
+    const text = `Check out this snippet: ${snippet.title}\n\n${url}`; // Ensure newline before URL
+
+    // Use Web Share API if available
+    if (navigator.share) {
+      navigator
+        .share({
+          title: snippet.title,
+          text,
+          url,
+        })
+        .catch((error) => console.error("Error sharing:", error));
+      return;
+    }
+
+    // Encode the text properly
+    const encodedText = encodeURIComponent(
+      `Check out this snippet: ${snippet.title}\n\n${url}`
+    );
+
+    // Fallback Share Options
+    const shareOptions = [
+      {
+        name: "WhatsApp",
+        url: `https://wa.me/?text=${encodedText}`, // WhatsApp deep link with encoded text
+      },
+      {
+        name: "Email",
+        url: `mailto:?subject=${encodeURIComponent(snippet.title)}&body=${encodedText}`,
+      },
+      {
+        name: "Messages",
+        url: `sms:?&body=${encodedText}`,
+      },
+    ];
+
+    // Open WhatsApp first by default
+    window.open(shareOptions[0].url, "_blank");
   };
 
   return (
@@ -50,7 +91,7 @@ function SnippetCard({ snippet }: { snippet: Snippet }) {
                   <div
                     className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-20 
                   group-hover:opacity-30 transition-all duration-500"
-                    area-hidden="true"
+                    aria-hidden="true"
                   />
                   <div
                     className="relative p-2 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 group-hover:from-blue-500/20
@@ -102,6 +143,13 @@ function SnippetCard({ snippet }: { snippet: Snippet }) {
                     </button>
                   </div>
                 )}
+
+                <button
+                  onClick={handleShare}
+                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-500/10 text-gray-400 hover:bg-blue-500/10 hover:text-blue-400 transition-all duration-200"
+                >
+                  <Share2 className="size-4" />
+                </button>
               </div>
             </div>
 
@@ -136,4 +184,5 @@ function SnippetCard({ snippet }: { snippet: Snippet }) {
     </motion.div>
   );
 }
+
 export default SnippetCard;
