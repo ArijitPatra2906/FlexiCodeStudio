@@ -13,7 +13,7 @@ function Header() {
   return (
     <div className="sticky top-0 z-50 w-full border-b border-gray-800/50 bg-gray-950/80 backdrop-blur-xl backdrop-saturate-150">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-1 md:px-4">
         <div className="relative h-16 flex items-center justify-between">
           <div className="flex items-center gap-8">
             {/* Logo */}
@@ -44,7 +44,7 @@ function Header() {
           </div>
 
           {/* right rection */}
-          <div className="flex items-center mt-2 gap-4">
+          <div className="flex items-center mt-2 gap-1 md:gap-4">
             <SignedIn>
               <Link href="/code-editor">
                 <button
@@ -82,20 +82,6 @@ function Header() {
                 <MessageCircle className="h-5 w-5 text-gray-200" />
               </button>
             </Link>
-            {/* <SignedOut>
-              <Link
-                href="/pricing"
-                className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20
-                 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
-                to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 transition-all 
-                duration-300"
-              >
-                <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
-                <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
-                  Pro
-                </span>
-              </Link>
-            </SignedOut> */}
 
             {/* profile button */}
             <HeaderProfileBtn />
