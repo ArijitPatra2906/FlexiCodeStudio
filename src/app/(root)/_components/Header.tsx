@@ -2,7 +2,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../../convex/_generated/api";
 import Link from "next/link";
-import { Blocks, MessageCircle, Share2 } from "lucide-react";
+import { Blocks, MessageCircle, Share2, Sparkles } from "lucide-react";
 import HeaderProfileBtn from "./HeaderProfileBtn";
 import ThemeSelector from "./ThemeSelector";
 import LanguageSelector from "./LanguageSelector";
@@ -53,7 +53,7 @@ async function Header() {
         {/* Mobile Layout */}
         <div className="flex flex-col w-full gap-4 lg:hidden">
           <div className="flex flex-col gap-3">
-            <LanguageSelector hasAccess={true} />
+            <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
             <ThemeSelector />
           </div>
 
@@ -74,13 +74,26 @@ async function Header() {
                   Community
                 </span>
               </Link>
+              {!convexUser?.isPro && (
+                <Link
+                  href="/pricing"
+                  className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
+                to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 
+                transition-all duration-300"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
+                  <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
+                    Pro
+                  </span>
+                </Link>
+              )}
             </nav>
           </div>
         </div>
 
         {/* Desktop Layout - Preserved Exactly */}
         <div className="hidden lg:flex items-center gap-4">
-          <nav className="flex items-center space-x-1">
+          <nav className="flex items-center space-x-2">
             <Link
               href="/community"
               className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 
@@ -95,9 +108,22 @@ async function Header() {
                 Community
               </span>
             </Link>
+            {!convexUser?.isPro && (
+              <Link
+                href="/pricing"
+                className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
+                to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 
+                transition-all duration-300"
+              >
+                <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
+                <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
+                  Pro
+                </span>
+              </Link>
+            )}
           </nav>
           <div className="flex items-center gap-3">
-            <LanguageSelector hasAccess={true} />
+            <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
             <ThemeSelector />
           </div>
 
