@@ -3,6 +3,7 @@ import HeroSection from "./_components/hero";
 import { testimonials } from "@/data";
 import FAQ from "./_components/Faq";
 import Link from "next/link";
+import Pricing from "./_components/Pricing";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Features Section */}
-      <div className="bg-[#0B0E14]/50 backdrop-blur-sm">
+      <div className="bg-[#0B0E14]/50 backdrop-blur-sm border-y border-gray-800">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full"></div>
 
@@ -83,10 +84,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Testimonials Section */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full"></div>
+      <Pricing />
 
+      {/* Testimonials Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="relative text-center mb-12">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
             What Developers Say
