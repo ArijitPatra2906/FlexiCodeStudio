@@ -2,9 +2,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../../convex/_generated/api";
 import Link from "next/link";
-import { Blocks, Code2, Share2 } from "lucide-react";
-import { SignedIn } from "@clerk/nextjs";
-import RunButton from "./RunButton";
+import { Blocks, MessageCircle, Share2 } from "lucide-react";
 import HeaderProfileBtn from "./HeaderProfileBtn";
 import ThemeSelector from "./ThemeSelector";
 import LanguageSelector from "./LanguageSelector";
@@ -62,7 +60,7 @@ async function Header() {
           <div className="flex items-center gap-4">
             <nav className="flex items-center space-x-1 w-full">
               <Link
-                href="/snippets"
+                href="/community"
                 className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 
                   hover:bg-blue-500/10 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 
                   shadow-lg overflow-hidden w-full justify-center"
@@ -71,9 +69,9 @@ async function Header() {
                   className="absolute inset-0 bg-gradient-to-r from-blue-500/10 
                   to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"
                 />
-                <Code2 className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
+                <MessageCircle className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
                 <span className="text-sm font-medium relative z-10 group-hover:text-white transition-colors">
-                  Snippets
+                  Community
                 </span>
               </Link>
             </nav>
@@ -84,7 +82,7 @@ async function Header() {
         <div className="hidden lg:flex items-center gap-4">
           <nav className="flex items-center space-x-1">
             <Link
-              href="/snippets"
+              href="/community"
               className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 
                 hover:bg-blue-500/10 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg overflow-hidden"
             >
@@ -92,9 +90,9 @@ async function Header() {
                 className="absolute inset-0 bg-gradient-to-r from-blue-500/10 
                 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"
               />
-              <Code2 className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
+              <MessageCircle className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
               <span className="text-sm font-medium relative z-10 group-hover:text-white transition-colors">
-                Snippets
+                Community
               </span>
             </Link>
           </nav>

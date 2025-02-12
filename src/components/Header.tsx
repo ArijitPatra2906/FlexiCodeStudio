@@ -1,6 +1,12 @@
 import HeaderProfileBtn from "@/app/(root)/_components/HeaderProfileBtn";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { Blocks, Code2, Codesandbox, Share2 } from "lucide-react";
+import {
+  Blocks,
+  Code2,
+  Codesandbox,
+  MessageCircle,
+  Share2,
+} from "lucide-react";
 import Link from "next/link";
 
 function Header() {
@@ -59,21 +65,21 @@ function Header() {
               </Link>
             </SignedIn>
 
-            <Link href="/snippets">
+            <Link href="/community">
               <button
                 className="hidden relative group md:flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 hover:bg-blue-500/10 
               border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg overflow-hidden"
               >
-                <Code2 className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
+                <MessageCircle className="w-4 h-4 relative z-10 group-hover:rotate-3 transition-transform" />
                 <span className="text-sm font-medium relative z-10 group-hover:text-white transition-colors">
-                  Snippets
+                  Community
                 </span>
               </button>
               <button
                 className="md:hidden p-2 rounded-lg bg-gray-700 hover:bg-gray-600 active:bg-gray-500 text-gray-200 transition-all duration-200 shadow-md"
                 aria-label="Open Snippets"
               >
-                <Code2 className="h-5 w-5 text-gray-200" />
+                <MessageCircle className="h-5 w-5 text-gray-200" />
               </button>
             </Link>
             {/* <SignedOut>

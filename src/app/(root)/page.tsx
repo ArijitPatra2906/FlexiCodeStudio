@@ -46,11 +46,15 @@ export default function Home() {
                 real-time.
               </p>
             </div>
+
             <div className="p-6 rounded-lg border border-gray-800 hover:border-blue-500 bg-[#0B0E14]/50 backdrop-blur-sm transition-all">
-              <div className="text-blue-400 text-2xl mb-4">🔗</div>
-              <h3 className="text-xl font-semibold mb-2">Easy Sharing</h3>
+              <div className="text-blue-400 text-2xl mb-4">🌍</div>
+              <h3 className="text-xl font-semibold mb-2">
+                Community Collaboration
+              </h3>
               <p className="text-gray-400">
-                Share your code snippets with others using a simple link.
+                Discover, comment, and star code snippets shared by developers
+                worldwide.
               </p>
             </div>
           </div>

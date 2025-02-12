@@ -16,11 +16,7 @@ function StarButton({ snippetId }: { snippetId: Id<"snippets"> }) {
 
   const handleStar = async () => {
     if (!isSignedIn) {
-      toast("Please login first for add to favourite", {
-        style: {
-          color: "gold",
-        },
-      });
+      toast.error("Not Authenticated");
       return;
     }
     await star({ snippetId });

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 import toast from "react-hot-toast";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, User } from "lucide-react";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 
@@ -61,13 +61,19 @@ function Comments({ snippetId }: { snippetId: Id<"snippets"> }) {
             isSubmitting={isSubmitting}
           />
         ) : (
-          <div className="bg-[#0a0a0f] rounded-xl p-6 text-center mb-8 border border-[#ffffff0a]">
+          <div className="bg-[#0a0a0f] rounded-xl p-6 text-center mb-8 border border-[#ffffff0a] flex items-center justify-center flex-col">
             <p className="text-[#808086] mb-4">
               Sign in to join the discussion
             </p>
             <SignInButton mode="modal">
-              <button className="px-6 py-2 bg-[#3b82f6] text-white rounded-lg hover:bg-[#2563eb] transition-colors">
-                Sign In
+              <button
+                className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 hover:bg-blue-500/10 
+              border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg overflow-hidden"
+              >
+                <User className="w-4 h-4 transition-transform" />
+                <span className="text-sm font-medium relative z-10 group-hover:text-white transition-colors">
+                  Sign In
+                </span>
               </button>
             </SignInButton>
           </div>

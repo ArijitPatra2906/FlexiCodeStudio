@@ -41,11 +41,18 @@ const HeroSection = () => {
         <div className="flex justify-center space-x-4">
           <Link
             href="/code-editor"
-            className="px-6 py-3 bg-white rounded-lg text-gray-700 text-sm font-semibold hover:bg-gray-100 transition-colors"
+            className="px-6 py-3 bg-white rounded-lg text-gray-700 text-sm font-semibold hover:bg-gray-100 transition"
           >
             Get Started
           </Link>
+          <Link
+            href="/community"
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition"
+          >
+            Join the Community
+          </Link>
         </div>
+
         <div className="hero-image-wrapper mt-5 md:mt-0">
           <div ref={imageRef} className="hero-image">
             <Image

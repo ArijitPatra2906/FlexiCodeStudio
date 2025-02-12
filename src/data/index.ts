@@ -13,23 +13,34 @@ export const faqs = [
       "We currently support JavaScript, Python, Java, C++, Ruby, and Rust. Our team is continuously working to add support for more languages based on community feedback and demands.",
   },
   {
-    question: "Can I share my code?",
-    answer: "Absolutely! Share your snippets with a single click.",
-  },
-  // {
-  //   question: "Can I use the editor offline?",
-  //   answer:
-  //     "While the editor is primarily web-based, we offer a Progressive Web App (PWA) version that allows for basic functionality offline. However, features like code execution and real-time collaboration require an internet connection.",
-  // },
-  {
     question: "How does the code sharing feature work?",
     answer:
-      "You can share your code by clicking the 'Share' button, which generates a unique URL. This link can be shared with anyone, and they'll be able to view and fork your code. You can also set permissions to allow others to edit the code directly.",
+      "You can share your code by clicking the 'Share' button, which generates a unique URL. This link can be shared with anyone, and they'll be able to view and copy your code.",
   },
   {
     question: "How secure is my code?",
     answer:
-      "We take security seriously. All code is encrypted at rest and in transit. You can also set snippets to private, making them accessible only to you or specific collaborators you invite.",
+      "We take security seriously. All code is encrypted at rest and in transit. You can also set snippets to private, making them accessible only to you.",
+  },
+  {
+    question: "What is the Community page?",
+    answer:
+      "The Community page is a place where users can share, discover, and discuss code snippets. You can star, comment, and collaborate with other developers.",
+  },
+  {
+    question: "Can I comment on shared snippets?",
+    answer:
+      "Yes! You can leave comments on any shared snippet to ask questions, give feedback, or start a discussion.",
+  },
+  {
+    question: "How do I star a snippet?",
+    answer:
+      "Click the star icon on any snippet to add it to your favorites. This helps others discover useful snippets as well.",
+  },
+  {
+    question: "Can I edit or update a shared snippet?",
+    answer:
+      "If you are the owner of the snippet, you can edit and update it anytime. If it's a public snippet, you can fork it and make your own changes.",
   },
 ];
 

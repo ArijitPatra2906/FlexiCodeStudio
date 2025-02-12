@@ -5,11 +5,11 @@ import { api } from "../../../convex/_generated/api";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, Code, Grid, Layers, Search, Tag, X } from "lucide-react";
-import SnippetsPageSkeleton from "./_components/SnippentsPageSkeleton";
 import SnippetCard from "./_components/SnippetCard";
 import Header from "@/components/Header";
+import CommunityPageSkeleton from "./_components/CommunityPageSkeleton";
 
-function SnippetsPage() {
+function CommunityPage() {
   const snippets = useQuery(api.snippets.getSnippets);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
@@ -20,7 +20,7 @@ function SnippetsPage() {
     return (
       <div className="min-h-screen">
         <Header />
-        <SnippetsPageSkeleton />
+        <CommunityPageSkeleton />
       </div>
     );
   }
@@ -51,10 +51,10 @@ function SnippetsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r
-             from-blue-500/10 to-purple-500/10 text-sm text-gray-400 mb-6"
+     from-blue-500/10 to-purple-500/10 text-sm text-gray-400 mb-6"
           >
             <BookOpen className="w-4 h-4" />
-            Community Code Library
+            Flexi Community Hub
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ function SnippetsPage() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-100 to-gray-300 text-transparent bg-clip-text mb-6"
           >
-            Discover & Share Code Snippets
+            Share, Star & Explore Snippets
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -70,7 +70,8 @@ function SnippetsPage() {
             transition={{ delay: 0.2 }}
             className="text-lg text-gray-400 mb-8"
           >
-            Explore a curated collection of code snippets from the community
+            A growing collection of community-powered code snippets—contribute,
+            collaborate, and innovate.
           </motion.p>
         </div>
 
@@ -227,4 +228,4 @@ function SnippetsPage() {
     </div>
   );
 }
-export default SnippetsPage;
+export default CommunityPage;

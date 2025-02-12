@@ -18,14 +18,16 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
       const code = getCode();
       const snippetId = await createSnippet({ title, language, code });
       await navigator.clipboard.writeText(
-        `${window.location.origin}/snippets/${snippetId}`
+        `${window.location.origin}/community/${snippetId}`
       );
       onClose();
       setTitle("");
-      toast.success("Link copied successfully");
+      toast.success(
+        "Snippet shared in the community! Link copied to clipboard."
+      );
     } catch (error) {
       console.log("Error creating snippet:", error);
-      toast.error("Error creating snippet");
+      toast.error("Failed to share snippet. Please try again.");
     } finally {
       setIsSharing(false);
     }

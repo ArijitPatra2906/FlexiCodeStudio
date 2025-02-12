@@ -22,7 +22,7 @@ function SnippetDetailPage() {
   });
 
   const handleShare = () => {
-    const url = `${window.location.origin}/snippets/${snippetId}`;
+    const url = `${window.location.origin}/community/${snippetId}`;
     const text = `Check out this snippet: \n\n${url}`; // Ensure newline before URL
 
     // Use Web Share API if available

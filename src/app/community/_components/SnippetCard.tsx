@@ -30,7 +30,7 @@ function SnippetCard({ snippet }: { snippet: Snippet }) {
   };
 
   const handleShare = () => {
-    const url = `${window.location.origin}/snippets/${snippet._id}`;
+    const url = `${window.location.origin}/community/${snippet._id}`;
     const text = `Check out this snippet: ${snippet.title}\n\n${url}`; // Ensure newline before URL
 
     // Use Web Share API if available
@@ -77,7 +77,7 @@ function SnippetCard({ snippet }: { snippet: Snippet }) {
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2 }}
     >
-      <Link href={`/snippets/${snippet._id}`} className="h-full block">
+      <Link href={`/community/${snippet._id}`} className="h-full block">
         <div
           className="relative h-full bg-[#1e1e2e]/80 backdrop-blur-sm rounded-xl 
           border border-[#313244]/50 hover:border-[#313244] 
