@@ -4,6 +4,7 @@ import {
   Github,
   Instagram,
   Linkedin,
+  MessageCircle,
   Twitter,
 } from "lucide-react";
 import Link from "next/link";
@@ -49,32 +50,40 @@ function Footer() {
               {[
                 {
                   icon: (
-                    <Twitter className="text-blue-500 hover:text-blue-600" />
+                    <Github className="text-blue-600 hover:text-blue-700" />
                   ),
-                  href: "#",
+                  href: "https://github.com/ArijitPatra2906",
                 },
                 {
                   icon: (
                     <Linkedin className="text-blue-700 hover:text-blue-800" />
                   ),
-                  href: "#",
+                  href: "https://www.linkedin.com/in/arijitpatra2906",
                 },
                 {
                   icon: (
-                    <Facebook className="text-blue-600 hover:text-blue-700" />
+                    <Twitter className="text-blue-500 hover:text-blue-600" />
                   ),
-                  href: "#",
+                  href: "https://x.com/arijitpatra2000?t=S_XYgvVLY4MoPMd4MmGJ_w&s=09",
+                },
+
+                {
+                  icon: (
+                    <MessageCircle className="text-green-500 hover:text-green-600" />
+                  ),
+                  href: "https://wa.me/6291273442",
                 },
                 {
                   icon: (
                     <Instagram className="text-pink-500 hover:text-pink-600" />
                   ),
-                  href: "#",
+                  href: "https://www.instagram.com/arijit_patra29",
                 },
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  target="_blank"
                   className="hover:bg-gray-100 p-2 rounded-full transition-colors"
                 >
                   {social.icon}
