@@ -1,36 +1,36 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
-import ConvexClientProvider from "@/components/providers/ConvexClientProvider";
-import Footer from "@/components/Footer";
-import { Toaster } from "react-hot-toast";
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+import './globals.css'
+import { ClerkProvider } from '@clerk/nextjs'
+import ConvexClientProvider from '@/components/providers/ConvexClientProvider'
+import Footer from '@/components/Footer'
+import { Toaster } from 'react-hot-toast'
+import { APP_DESCRIPTION, APP_NAME } from '@/lib/constants'
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+})
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+})
 
 export const metadata: Metadata = {
-  title: "Flexi Code Studio",
-  description:
-    "A modern code studio built for efficiency, speed, and innovation,support multiple language.",
-};
+  title: APP_NAME,
+  description: APP_DESCRIPTION,
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <ClerkProvider key={typeof window !== "undefined" ? "client" : "server"}>
-      <html lang="en" suppressHydrationWarning>
+    <ClerkProvider key={typeof window !== 'undefined' ? 'client' : 'server'}>
+      <html lang='en' suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-gray-900 to-gray-950 text-gray-100 flex flex-col`}
         >
@@ -40,5 +40,5 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
-  );
+  )
 }
